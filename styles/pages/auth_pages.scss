@@ -1,0 +1,95 @@
+.auth-page__container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(
+      100% 228.56% at 0% 0%,
+      rgba(147, 183, 216, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #1f2b32;
+
+  color: #dadada;
+
+  .form {
+    padding: 1em 2.5em;
+
+    box-shadow: 5px 6px 19px -10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 5px 6px 19px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 6px 19px -10px rgba(0, 0, 0, 0.75);
+
+    /* From https://css.glass */
+    background: #32424d14;
+    border-radius: 16px;
+    // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    // border: 1px solid rgba(255, 255, 255, 0.32);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    svg {
+      margin: 1em 0 2em 0;
+    }
+
+    &__control {
+      &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1em auto;
+        margin-bottom: 1.5em;
+
+        &:last-child {
+          flex-direction: column;
+        }
+
+        label,
+        input {
+          display: inline-block;
+          transition: all 150ms;
+        }
+
+        input {
+          width: 95%;
+          background-color: #f8954d14;
+          border: 2px solid #f8954d1f;
+          padding: 0.85em;
+          color: #dadada;
+          // font-size: 1.15rem;
+        }
+
+        label {
+          width: 95%;
+          text-align: start;
+          font-size: 0.75rem;
+          color: #e1e1e1;
+        }
+
+        button {
+          padding: 1em 0.75em;
+          width: 95%;
+          border: none;
+          background-color: #f8954d;
+          font-weight: bolder;
+          color: #dadada;
+          margin-bottom: 1.25em;
+        }
+      }
+    }
+
+    &__link {
+      color: #f8954d;
+      font-weight: bolder;
+      margin-left: 0.5em;
+      cursor: pointer;
+    }
+  }
+}
