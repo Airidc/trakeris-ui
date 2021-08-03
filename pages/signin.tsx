@@ -1,7 +1,10 @@
+import Head from "next/head";
 import Link from "next/link";
 import React, { useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../lib/hooks";
-import { changeCurrentPage, selectAppConfig } from "../lib/slices/appConfigSlice";
+import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../lib/store/hooks";
+import { AppConfigState, changeCurrentPage, selectAppConfig } from "../lib/store/slices/appConfigSlice";
+import { authSlice, login } from "../lib/store/slices/authSlice";
 
 export interface loginRefs {
     username?: HTMLInputElement | null,
@@ -9,17 +12,27 @@ export interface loginRefs {
 }
 
 export default function loginPage() {
-    const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
     dispatch(changeCurrentPage({ currentPage: "Login" }))
-    const { apiUrl, currentPage } = useAppSelector(selectAppConfig);
+    const { apiUrl, currentPage } = useAppSelector<AppConfigState>(selectAppConfig);
     const inputRefs = useRef<loginRefs>({});
 
     const submitLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(inputRefs.current?.username?.value, inputRefs.current?.password?.value);
+        let username = inputRefs.current['username']?.value;
+        let password = inputRefs.current['password']?.value;
+        if (username && password) {
+            dispatch(login({ username: username, password: password }));
+        }
     }
     return (
         <div className="auth-page__container">
+            <Head>
+                <title>[TRK] Trakeris - Sign in!</title>
+                <meta name="description" content="Trakeris - Expense and Finance Tracker. Track your daily expenses and use rich reports to examine your spending habbits." />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <form className="form" onSubmit={submitLogin}>
                 <svg width="69" height="37" viewBox="0 0 69 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="37" height="37" rx="4" fill="#F8954D" />
@@ -41,6 +54,7 @@ export default function loginPage() {
                     <button type="submit">Sign in</button>
                     <p>Forgor your password? <Link href="/reset"><a className="form__link">Click here</a></Link></p>
                     <p>Don't have an account yet? <Link href="/signup"><a className="form__link">Sign up</a></Link></p>
+                    <Link href="/"><a className="form__link">Back to homepage</a></Link>
                 </div>
             </form>
         </div>
