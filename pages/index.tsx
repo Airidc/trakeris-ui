@@ -14,6 +14,7 @@ export default function Home() {
 
       <Link href="/signin"><a className="homepage__link">Sign In</a></Link>
       <Link href="/signup"><a className="homepage__link">Sign Up</a></Link>
+      <Link href="/dashboard"><a className="homepage__link">Go to Dashboard [test]</a></Link>
     </div>
   )
 }

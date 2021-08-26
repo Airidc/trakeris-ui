@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import { UserDTO } from "../../DTO/userDTO";
 import { User } from "../../types/User";
+import { RootState } from "../store";
 import { appConfigSlice } from "./appConfigSlice";
 
 export enum AuthStates {
@@ -15,15 +16,24 @@ export enum AuthStates {
   loading = "loading",
 }
 
+interface LoginResponse {
+  status: string;
+  user: User;
+  refreshToken: string;
+  refreshTokenExpiry: number;
+}
+
 export interface AuthSliceState {
-  accessToken: string;
+  refreshToken: string;
+  refreshTokenExpiry: number;
   loading: AuthStates;
-  user?: User;
+  user: User | undefined;
   error?: SerializedError;
 }
 
 const initialState = {
-  accessToken: "",
+  refreshToken: "",
+  refreshTokenExpiry: 0,
   loading: AuthStates.idle,
   user: undefined,
 };
@@ -32,12 +42,12 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials: { username: string; password: string }, thunkAPI) => {
     try {
-      const response = await axios.post<{ status: string; user: User }>(
-        "http://localhost:3001/api/auth/login",
-        { username: credentials.username, password: credentials.password }
-      );
+      const response = await axios.post<LoginResponse>("http://localhost:3001/api/auth/login", {
+        username: credentials.username,
+        password: credentials.password,
+      });
       console.log(response);
-      return response.data.user;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
@@ -48,11 +58,12 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    updateAccessToken(
+    updateRefreshToken(
       state: AuthSliceState,
-      action: PayloadAction<{ token: string }>
+      action: PayloadAction<{ refreshToken: string; refreshTokenExpiry: number }>
     ) {
-      state.accessToken = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
+      state.refreshTokenExpiry = action.payload.refreshTokenExpiry;
     },
     reset: () => initialState,
   },
@@ -63,8 +74,13 @@ export const authSlice = createSlice({
     });
     builder.addCase(login.fulfilled, (state, action) => {
       // Update the state.
-      state.user = <User>action.payload;
+      console.log("LOGGED IN");
+      state.user = action.payload.user;
+      state.refreshToken = action.payload.refreshToken;
+      state.refreshTokenExpiry = action.payload.refreshTokenExpiry;
       state.loading = AuthStates.idle;
     });
   },
 });
+
+export const selectUserData = (state: RootState) => state.authReducer;

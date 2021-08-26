@@ -5,10 +5,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 import { appConfigSlice } from "./slices/appConfigSlice";
 import { authSlice } from "./slices/authSlice";
+import { transactionSlice } from "./slices/transactionsSlice";
 
 const combinedReducers = combineReducers({
   appConfigReducer: appConfigSlice.reducer,
   authReducer: authSlice.reducer,
+  transactionReducer: transactionSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof combinedReducers>;
