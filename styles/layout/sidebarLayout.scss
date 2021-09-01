@@ -1,0 +1,41 @@
+.sidebar-layout {
+  &--wrapper {
+    display: flex;
+    flex-direction: row;
+    background: radial-gradient(100% 228.56% at 0% 0%, rgba(147, 183, 216, 0.2) 0%, rgba(0, 0, 0, 0) 100%), #1f2b32;
+
+    color: #dadada;
+  }
+
+  &--sidebar {
+    width: 250px;
+    padding-top: 2em;
+    background-color: #1f2b32;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .sidebar--logo {
+      margin: 1em;
+    }
+
+    .sidebar--profile-pic-container {
+      margin: 1em 1em 0.2em;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #dadada;
+    }
+  }
+
+  &--page-container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-grow: 1;
+  }
+}

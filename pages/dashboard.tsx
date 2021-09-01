@@ -1,3 +1,4 @@
+import { NextServer } from 'next/dist/server/next';
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRef } from 'react';
@@ -20,9 +21,7 @@ export default function Dashboard() {
     }
 
     return (
-
-
-        <div className="page-container">
+        <>
             <Head>
                 <title>[TRK] Trakeris - Dashboard</title>
                 <meta name="description" content="Trakeris - Expense and Finance Tracker. Track your daily expenses and use rich reports to examine your spending habbits." />
@@ -37,6 +36,6 @@ export default function Dashboard() {
 
             <span onClick={dispatchGetTransactions} >Get Transactions</span>
             <pre></pre>
-        </div>
+        </>
     )
 }
