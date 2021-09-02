@@ -8,6 +8,8 @@
   }
 
   &--sidebar {
+    display: block;
+    position: relative;
     width: 250px;
     padding-top: 2em;
     background-color: #1f2b32;
@@ -25,6 +27,37 @@
       height: 80px;
       border-radius: 50%;
       border: 2px solid #dadada;
+    }
+
+    .sidebar--profile-image {
+      border-radius: 50%;
+    }
+
+    .sidebar--nav {
+      display: flex;
+      border: 1px dashed greenyellow;
+      flex-direction: column;
+      width: 90%;
+      position: relative;
+
+      &--list {
+        display: flex;
+        flex-direction: column;
+        // flex-shrink: 1;
+
+        border: 2px dashed purple;
+        height: 100%;
+        // width: 100%;
+
+        &--item {
+          flex: 0 1 auto;
+          width: 100%;
+          border-left: 4px solid #abcdef;
+          padding: 1em 0;
+          margin: 0.25em 0;
+          text-align: center;
+        }
+      }
     }
   }
 

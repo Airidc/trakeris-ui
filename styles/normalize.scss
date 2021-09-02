@@ -422,3 +422,13 @@ textarea {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
+
+ul,
+ol {
+  list-style: none;
+  padding-inline: none;
+  margin-inline: none;
+  padding-block: none;
+  margin-block: none;
+  padding-inline-start: unset;
+}
