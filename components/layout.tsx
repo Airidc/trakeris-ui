@@ -23,16 +23,16 @@ export default function Layout({ children }: any) {
                 </div>
                 <h3>Vensku Airis</h3>
                 <nav className="sidebar--nav">
-                    <ol className="sidebar--nav--list">
-                        <span className="sidebar--nav--list--item">Dashboard</span>
+                    <ul className="sidebar--nav--list">
+                        <span className="sidebar--nav--list--item active">Dashboard</span>
                         <span className="sidebar--nav--list--item">Portoflios</span>
                         <span className="sidebar--nav--list--item">Expenses</span>
                         <span className="sidebar--nav--list--item">Settings</span>
-                    </ol>
+                    </ul>
                 </nav>
                 <button onClick={signInTEST}>Log IN while testing</button>
             </div>
-            <main className="sidebar-layout--page-container">{children}</main>
+            {children}
         </div>
     )
 }

@@ -1,0 +1,40 @@
+.quickOverview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.quickOverviewCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2em;
+  position: relative;
+  justify-self: center;
+  text-align: center;
+  width: 70%;
+}
+
+.quickOverviewCard:not(:last-child):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  margin: 0 auto;
+  height: 70%;
+  width: 100%;
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.quickOverviewCardTitle {
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  padding: 0.5em;
+}
+
+.quickOverviewCardValue {
+  font-size: 1.1rem;
+}
