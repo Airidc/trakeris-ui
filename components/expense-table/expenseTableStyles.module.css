@@ -1,0 +1,21 @@
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

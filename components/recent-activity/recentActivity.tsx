@@ -5,7 +5,7 @@ import * as styles from "./recentActivityStyles.module.css";
 
 export default function RecentActivity() {
     return (
-        <div className={styles.wrapper}>
+        <>
             <h4 className={styles.titleText}>Recent Activity</h4>
             <div className={styles.logItems}>
                 <RecentActivityLogItem />
@@ -13,6 +13,6 @@ export default function RecentActivity() {
                 <RecentActivityLogItem />
                 <RecentActivityLogItem />
             </div>
-        </div>
+        </>
     )
 }

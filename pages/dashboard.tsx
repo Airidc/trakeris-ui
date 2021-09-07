@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import ExpenseTable from '../components/expense-table/expenseTable';
 import QuickOverview from '../components/quick-overview/quickOverview';
 import RecentActivity from '../components/recent-activity/recentActivity';
 import { useAppSelector } from '../lib/store/hooks';
@@ -46,9 +47,12 @@ export default function Dashboard() {
 
             <div className="center-content">
                 <QuickOverview />
+                <ExpenseTable />
             </div>
             <div className="right-side-content">
                 <RecentActivity />
+            </div>
+            <div className="main-content">
             </div>
         </main>
     )

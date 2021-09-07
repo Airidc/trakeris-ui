@@ -14,8 +14,8 @@ export default function QuickOverview() {
                 <span className={styles.quickOverviewCardValue}>2,239 €</span>
             </div>
             <div className={styles.quickOverviewCard}>
-                <span className={styles.quickOverviewCardTitle}>Savings</span>
-                <span className={styles.quickOverviewCardValue}>2,239 €</span>
+                <span className={styles.quickOverviewCardTitle}>Remaining balance</span>
+                <span className={styles.quickOverviewCardValue}>1.234 €</span>
             </div>
             <div className={styles.quickOverviewCard}>
                 <span className={styles.quickOverviewCardTitle}>Most Spent</span>

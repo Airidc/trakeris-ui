@@ -40,10 +40,32 @@
 }
 
 .expense {
-  border: 2px solid #ee7a76;
+  border: 2px solid #f54943;
 }
 
 .txInfoWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+.txInfoDate {
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+.txLabelsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.txName {
+  font-weight: 600;
+}
+
+.txComment {
+  font-weight: 300;
+  font-size: 0.85rem;
 }
