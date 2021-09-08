@@ -1,15 +1,21 @@
 .table {
   display: flex;
   flex-direction: column;
+
+  background-color: #555555;
 }
 
 .tableHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  font-weight: 600;
+  background-color: #a56434;
+  /* justify-content: space-evenly; */
 }
 
+/* .tableHeader > .cell {
+} */
+
 .tableBody {
+  text-align: left;
   display: flex;
   flex-direction: column;
 }
@@ -18,4 +24,17 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid #6d6d6d;
+}
+
+.cell {
+  max-width: 100%;
+  min-width: 100px;
+  padding: 10px;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.name {
+  min-width: 200px;
 }

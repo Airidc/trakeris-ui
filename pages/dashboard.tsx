@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import CircularProgressBar from '../components/circular-progress/circularProgress';
+import Vault from '../components/vault/vault';
 import ExpenseTable from '../components/expense-table/expenseTable';
 import QuickOverview from '../components/quick-overview/quickOverview';
 import RecentActivity from '../components/recent-activity/recentActivity';
@@ -30,7 +32,7 @@ export default function Dashboard() {
     }
 
     return (
-        <main className="page-container">
+        <main className="dashboard-page-container">
             {/* <Link href="/signin"><a className="homepage__link">Sign In</a></Link>
             <Link href="/signup"><a className="homepage__link">Sign Up</a></Link>
             <Link href="/"><a className="homepage__link">Homepage</a></Link> */}
@@ -52,7 +54,26 @@ export default function Dashboard() {
             <div className="right-side-content">
                 <RecentActivity />
             </div>
-            <div className="main-content">
+            <div className="below-content">
+                <div className="monthly-goals">
+                    <h4>Monthly Goals:</h4>
+                    <div className="goals-container">
+                        <CircularProgressBar value={125} to={154} label={'Islaidos'}></CircularProgressBar>
+                        <CircularProgressBar value={125} to={154} label={'Islaidos'}></CircularProgressBar>
+                        <CircularProgressBar value={125} to={154} label={'Islaidos'}></CircularProgressBar>
+                    </div>
+                </div>
+                <div className="vaults">
+                    <h4>Vaults</h4>
+                    <div className="vaults-container">
+                        <Vault />
+                        <Vault />
+                        <Vault />
+                        <Vault />
+                        <Vault />
+                        <Vault />
+                    </div>
+                </div>
             </div>
         </main>
     )

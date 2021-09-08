@@ -1,55 +1,17 @@
 import React from 'react'
+import ExpenseTableRow, { DataField } from './expenseTableRow'
 import * as styles from './expenseTableStyles.module.css'
 
 export default function ExpenseTable() {
+    const months: DataField[] = [{ value: '21 Aug' }, { value: '21 Aug' }, { value: '21 Aug' }, { value: '21 Aug' }, { value: '21 Aug' }, { value: '21 Aug' }, { value: '21 Aug' }]
     return (
         <div className={styles.table}>
-            <div className={styles.tableHeader}>
-                <div className="month">Type</div>
-                <div className="name">Name</div>
-                <div className="month ">2021 August</div>
-                <div className="month ">2021 September</div>
-                <div className="month ">2021 October</div>
-                <div className="month ">2021 November</div>
-                <div className="month ">2021 December</div>
-            </div>
+            <ExpenseTableRow isHeader={true} data={months} />
             <div className={styles.tableBody}>
-                <div className={styles.tableRow}>
-                    <div className={`${styles.cell}`}>Income</div>
-                    <div className={`${styles.cell}`}>Maistas</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={`${styles.cell}`}>Income</div>
-                    <div className={`${styles.cell}`}>Maistas</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={`${styles.cell}`}>Income</div>
-                    <div className={`${styles.cell}`}>Maistas</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                </div>
-                <div className={styles.tableRow}>
-                    <div className={`${styles.cell}`}>Income</div>
-                    <div className={`${styles.cell}`}>Maistas</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                    <div className={`${styles.cell}`}>420€</div>
-                </div>
+                <ExpenseTableRow data={months} />
+                <ExpenseTableRow data={months} />
+                <ExpenseTableRow data={months} />
+                <ExpenseTableRow data={months} />
             </div>
         </div>
     )

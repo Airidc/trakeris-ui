@@ -1,0 +1,61 @@
+#svg {
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+.circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #d2d2d250;
+  stroke-width: 1em;
+}
+
+#bar {
+  stroke: #66baeb;
+}
+
+.circularProgressWrapper {
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin: 2em auto;
+  border-radius: 100%;
+  position: relative;
+}
+
+.circularProgressWrapper:after {
+  color: #81fcb8;
+  position: absolute;
+  display: block;
+  height: 160px;
+  width: 160px;
+  left: 50%;
+  top: 35%;
+  text-align: center;
+  content: attr(data-percentage) "%";
+  margin-top: -80px;
+  margin-left: -80px;
+  border-radius: 100%;
+  line-height: 160px;
+  font-size: 2em;
+  text-shadow: 0 0 0.5em #81fcb8;
+  z-index: 1;
+}
+
+.circularProgressValues {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.circularProgressLabel {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #85a0f8;
+}

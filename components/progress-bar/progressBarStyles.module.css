@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+}
+
+.textContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.percentageText {
+  margin: 0.1em;
+  font-weight: 300;
+}
