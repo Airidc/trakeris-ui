@@ -11,14 +11,15 @@ import RecentActivity from '../components/recent-activity/recentActivity';
 import { useAppSelector } from '../lib/store/hooks';
 import { AppConfigState, changeCurrentPage, selectAppConfig } from '../lib/store/slices/appConfigSlice';
 import { AuthSliceState, AuthStates, selectUserData } from '../lib/store/slices/authSlice';
-import { getTransactions } from '../lib/store/slices/transactionsSlice';
+import { getGroupedTransactions, getTransactions } from '../lib/store/slices/transactionsSlice';
 
 export default function Dashboard() {
     const dispatch = useDispatch();
     const authData = useAppSelector<AuthSliceState>(selectUserData);
 
     useEffect(() => {
-        dispatch(changeCurrentPage({ currentPage: "Dashboard" }))
+        dispatch(changeCurrentPage({ currentPage: "Dashboard" }));
+        if (authData.user) dispatch(getGroupedTransactions(authData.user?.id));
         return () => {
 
         }

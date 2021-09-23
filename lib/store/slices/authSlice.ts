@@ -59,7 +59,7 @@ export const login = createAsyncThunk(
       });
       console.log(response);
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       return thunkAPI.rejectWithValue({ error: error.message });
     }
   }

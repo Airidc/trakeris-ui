@@ -11,3 +11,28 @@ export type Transaction = {
   comment: string;
   user: User;
 };
+
+export type GroupedTransactions = {
+  income:
+    | [
+        {
+          name: string;
+          values: GroupedTransactionValue[];
+        }
+      ]
+    | [];
+  expenses:
+    | [
+        // loop as rows
+        {
+          name: string;
+          values: GroupedTransactionValue[];
+        }
+      ]
+    | [];
+};
+
+export type GroupedTransactionValue = {
+  selector: string;
+  value: number;
+};
